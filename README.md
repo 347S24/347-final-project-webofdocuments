@@ -16,7 +16,6 @@ Mostly just to make sure you each have access and can pull and push to the repo,
 1. Ethan Himes
 1. Hudson Shaeffer
 1. Kevin Chen
-2. test record
 
 ## Scaffolding
 
