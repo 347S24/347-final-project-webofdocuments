@@ -31,3 +31,12 @@ It's not exactly time yet, but if you're excited I don't want to stand in the wa
 2. Click the arrow beside the green "Link Project" button and choose "New Project"
 3. I guess now you also have to click "New Project" 🙄
 4. find the "iterative development" template and choose it.
+
+____________________________________
+
+Link to the Google Doc: https://docs.google.com/document/d/1bA8mUJzRuxSTIathNEGbuRiEQmei21EDOOAnwEs2aG0/edit
+
+## WebOfDocuments
+When taking notes for any topic, keeping them in 1 document is unwieldy, and keeping them in multiple documents is often difficult to keep track of. WOD proposes the solution of many interlinked documents
+
+If an example is needed to help visualize it. Look up Obsidian, its a desktop app that I’m hoping to recreate on the web.
