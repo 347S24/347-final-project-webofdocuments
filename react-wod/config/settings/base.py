@@ -47,10 +47,14 @@ LOCALE_PATHS = [str(BASE_DIR / "locale")]
 # https://docs.djangoproject.com/en/dev/ref/settings/#databases
 
 DATABASES = {
-    "default": env.db(
-        "DATABASE_URL",
-        default="postgres:///react_wod",
-    ),
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "react_wod",
+        "USER": "ahron",
+        "PASSWORD": "pancakes",
+        "HOST": "127.0.0.1",
+        "PORT": "5432",
+    },
 }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 # https://docs.djangoproject.com/en/stable/ref/settings/#std:setting-DEFAULT_AUTO_FIELD
