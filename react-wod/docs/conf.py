@@ -27,7 +27,7 @@ django.setup()
 
 # -- Project information -----------------------------------------------------
 
-project = "Ultimate TicTacToe"
+project = "Ultimate react_wod"
 copyright = """2024, Michael Stewart"""
 author = "Michael Stewart"
 
