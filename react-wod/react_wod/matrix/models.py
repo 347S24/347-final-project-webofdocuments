@@ -1,6 +1,6 @@
 from django.db import models
 # from django.urls import reverse
-from users.models import User
+from react_wod.users.models import User
 
 """Model represents a collection of files"""
 class Matrix(models.Model):
@@ -9,8 +9,8 @@ class Matrix(models.Model):
         help_text="enter the title of this matrix"
     )
     # main data that will be stored in a matrix (a group of files)
-    documents = models.FileField()
-    owner = models.ForeignKey(User)
+    
+    owner = models.ForeignKey(User, models.CASCADE)
     
     # connections = ;
 
@@ -24,15 +24,19 @@ class Document(models.Model):
         help_text="enter the filename"
     )
     # FIXME
-    # file_contents = ;
+    file_contents = models.FileField(null=True,blank=True)
     # FIXME
-    # matrix = ;
+    matrix = models.ForeignKey(Matrix, models.CASCADE, related_name='documents', null=True,blank=True)
 
     def __str__(self):
         """String for representing the Model object."""
         return self.file_name
     
-# class Connection(models.Model):
-#     # start_node = ;
-#     # end_node = ;
-#     # matrix = ;
+class Connection(models.Model):
+    start_node = models.ForeignKey(Document, models.CASCADE, related_name='departures')
+    end_node = models.ForeignKey(Document, models.CASCADE, related_name='arrivals')
+    matrix = models.ForeignKey(Matrix, models.CASCADE, related_name='connections')
+
+    def __str__(self):
+        """String for representing the Model object."""
+        return f"{self.start_node} ==> {self.end_node}"
