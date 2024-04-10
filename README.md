@@ -1,5 +1,13 @@
 # Final-Project-Starter
 
+## Frontend development
+
+Open terminal to `xylomania/frontend`. After running `npm install` you can run `npm run autobuild` to update the built files anytime you change frontend files.
+
+## Backend development
+
+Open another terminal at the root of this repo and run `./manage.py runserver`
+
 1. License
 2. add your names to the readme (this file)
 3. Scaffold your project
