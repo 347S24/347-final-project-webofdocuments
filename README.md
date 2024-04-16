@@ -2,7 +2,7 @@
 
 ## Frontend development
 
-Open terminal to `xylomania/frontend`. After running `npm install` you can run `npm run autobuild` to update the built files anytime you change frontend files.
+Open terminal to `react_wod/frontend`. After running `npm install` you can run `npm run autobuild` to update the built files anytime you change frontend files.
 
 ## Backend development
 
