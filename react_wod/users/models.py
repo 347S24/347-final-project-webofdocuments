@@ -20,10 +20,9 @@ class User(AbstractUser):
     last_name = None  # type: ignore[assignment]
 
     #TODO: is this allowed with django allauth??????????
-    # email = models.EmailField(_("email address"), unique=True)
-    # username = None # type: ignore[assignment]
-    # USERNAME_FIELD = "email"
-    # REQUIRED_FIELDS = [email]
+    email = models.EmailField(_("email address"), unique=True)
+    USERNAME_FIELD = "email"
+    REQUIRED_FIELDS = []
 
     
     #TODO: custom manager required????
