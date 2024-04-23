@@ -11,3 +11,22 @@
   background-color: #f2dede;
   border-color: #eed3d7;
 }
+
+.navbar {
+  position: fixed; /* Fix the navbar to the left side */
+  top: 0;
+  left: 0;
+  width: 10%; /* Set width to 10% of the screen */
+  height: 100vh; /* Set height to 100% of the viewport height */
+  background-color: #f1f1f1; /* Set background color (optional) */
+  padding: 1rem; /* Add some padding (optional) */
+}
+
+.login-btn {
+  background-color: #3498db; /* Adjust button color as desired */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}

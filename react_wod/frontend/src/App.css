@@ -5,19 +5,6 @@
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,10 +20,53 @@
   }
 }
 
-.card {
-  padding: 2em;
+.navbar {
+  position: fixed; /* Fix the navbar to the left side */
+  top: 0;
+  left: 0;
+  width: 10%; /* Set width to 10% of the screen */
+  height: 100vh; /* Set height to 100% of the viewport height */
+  background-color: whitesmoke; /* Set background color (optional) */
+  padding: 1rem; /* Add some padding (optional) */
+  display: flex; /* Add display: flex */
+  flex-direction: column;
+  align-items: center; 
 }
 
-.read-the-docs {
-  color: #888;
+.login-btn {
+  background-color: blueviolet; /* Adjust button color as desired */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.home-btn {
+  background-color: blue; /* Adjust button color as desired */
+  color: white;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.create-btns {
+  display: flex; /* Add display: flex */
+  flex-direction: row;
+  align-items: center; /* Align buttons vertically */
+}
+
+.create-btn {
+
+}
+
+.matrix-name {
+
+}
+
+.list-nodes {
+  display: flex; /* Add display: flex */
+  flex-direction: column;
+  align-items: center; 
 }

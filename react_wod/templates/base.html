@@ -55,9 +55,14 @@
 {% endblock javascript %}
 </head>
 <body class="{% block bodyclass %}{% endblock bodyclass %}">
+  {% block nav %}
+  <nav class="navbar">
+    <a href="{% url 'account_login' %}" class="login-btn">Log In</a>
+  </nav>
+  {% endblock nav %}
   {% block body %}
   <div class="mb-1">
-    <nav class="navbar navbar-expand-md navbar-light bg-light">
+    <!-- <nav class="navbar navbar-expand-md navbar-light bg-light">
       <div class="container-fluid">
         <button class="navbar-toggler navbar-toggler-right"
                 type="button"
@@ -101,7 +106,7 @@
           </ul>
         </div>
       </div>
-    </nav>
+    </nav> -->
   </div>
   <div class="container">
     {% if messages %}
@@ -117,7 +122,7 @@
     {% endif %}
     {% block main %}
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        <p></p>
       {% endblock content %}
     {% endblock main %}
 
