@@ -10,7 +10,7 @@ class Matrix(models.Model):
     )
     # main data that will be stored in a matrix (a group of files)
     
-    owner = models.ForeignKey(User, models.CASCADE)
+    owner = models.ForeignKey(User, models.CASCADE, related_name='owned_matricies')
     
     # connections = ;
 
@@ -27,6 +27,8 @@ class Document(models.Model):
     file_contents = models.FileField(null=True,blank=True)
     # FIXME
     matrix = models.ForeignKey(Matrix, models.CASCADE, related_name='documents', null=True,blank=True)
+
+    owner = models.ForeignKey(User, models.CASCADE, related_name='owned_documents')
 
     def __str__(self):
         """String for representing the Model object."""
