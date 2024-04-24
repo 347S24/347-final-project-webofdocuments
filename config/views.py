@@ -14,6 +14,7 @@ class HomeView(TemplateView):
         context_data = super().get_context_data(**kwargs)
         context_data.update({
             "username": self.request.user.username,
+            # "owned_nodes": self.request.user.owned_documents.all(),
         })
         return context_data
 

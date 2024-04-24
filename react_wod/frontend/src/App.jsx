@@ -14,25 +14,36 @@ function App() {
     <>
     <nav class="navbar">
 
-      <a href="/" class="home-btn">Home</a>
+      {/* <a href="/" class="home-btn">Home</a> */}
 
       {
-        username ? <a href="/accounts/logout/" class="login-btn">Log Out</a> : <a href="/accounts/login/" class="login-btn">Log In</a>
+        username ? <div class='greeting-msg'>{username}</div> : <div class='greeting-msg'>Please Login</div>
+      }
+
+      {
+        username ? <a href="/accounts/logout/" class="logout-btn">Log Out</a> : <a href="/accounts/login/" class="login-btn">Log In</a>
       }
 
       <div class="create-btns">
-        <a href="" class='create-btn'>New Matrix</a>
-        <a href="" class='create-btn'>New Node</a>
+        <a href="" class='create-matrix'>New Matrix</a>
+        <a href="" class='create-node'>New Node</a>
       </div>
 
-      <div class='matrix-name'>placeholder matrix</div>
+      <div class='matrix-name'>Matrix Name</div>
       <div class='list-nodes'>
+        {/* TODO: make it list the contents of the owned_nodes list */}
       </div>
     </nav>
-      <div className="card">
-        <p>
-          You are logged in as {username}.
-        </p>
+      <div>
+        {
+          username ? 
+          <p>Hello {username}! Welcome to Web of Documents. <br></br> <br></br>
+          To get started, try making a matrix to hold all your connected documents! <br></br>
+          If you have already made a matrix, it's time to make your documents!</p>
+          :
+          <p>Hello & welcome to Web of Documents, your solution to cluttered notes!<br></br><br></br>
+            Please login to utilize our app!</p>
+        }
       </div>
     </>
   )
