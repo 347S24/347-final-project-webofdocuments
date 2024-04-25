@@ -2,21 +2,17 @@ from django.db import models
 from django.urls import reverse
 from django.conf import settings
 from react_wod.users.models import User
+from django.contrib.auth import get_user_model
 
 
 def get_default_user():
     """Helper function to get the default user id."""
-    from django.contrib.auth import get_user_model
     User = get_user_model()
     admin_user = User.objects.filter(is_superuser=True).first()
     if admin_user:
         return admin_user.id
     else:
-        if settings.DEBUG:
-            admin_user = User.objects.create_superuser(email='test@default.com', password='pass')
-            return admin_user.id
-        else:
-            raise ValueError("No superuser exists; inable to assign a document owner.")
+        raise ValueError("No superuser exists; inable to assign a document owner.")
 
 
 """Model represents a collection of files"""
