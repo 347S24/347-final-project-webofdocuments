@@ -277,3 +277,5 @@ tictactoe/media/
 
 **/static/assets/
 media/
+
+.env
