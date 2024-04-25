@@ -22,7 +22,7 @@ class User(AbstractUser):
     #TODO: is this allowed with django allauth??????????
     email = models.EmailField(_("email address"), unique=True)
     USERNAME_FIELD = "email"
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     
     #TODO: custom manager required????
