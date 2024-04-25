@@ -78,7 +78,8 @@
 }
 
 .matrix-name {
-  /* placeholder */
+  color: white;
+  text-decoration: none;
 }
 
 .list-nodes {
@@ -88,5 +89,6 @@
 }
 
 .node-link {
+  color: whitesmoke;
   text-decoration: none;
 }

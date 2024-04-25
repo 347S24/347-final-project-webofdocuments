@@ -31,7 +31,9 @@ function App() {
 
       <div class='matrix-name'>Matrix Name</div>
       <div class='list-nodes'>
-        {/* TODO: make it list the contents of the owned_nodes list */}
+        {
+          // need to add some way to list each thing of 
+        }
       </div>
     </nav>
       <div>
