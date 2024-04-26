@@ -8,6 +8,7 @@ from django.views import defaults as default_views
 from django.views.generic import TemplateView
 
 from .views import HomeView
+from .api import api
 
 
 urlpatterns = [
@@ -22,6 +23,7 @@ urlpatterns = [
     # User management
     path("users/", include("react_wod.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path("api/", api.urls),
     # Your stuff: custom urls includes go here
     re_path(".*", HomeView.as_view(), name="home"),
     # Media files
