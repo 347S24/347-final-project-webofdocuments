@@ -11,6 +11,9 @@ class Matrix(models.Model):
     # main data that will be stored in a matrix (a group of files)
     
     owner = models.ForeignKey(User, models.CASCADE, related_name='owned_matricies', default=1)
+
+    class Meta:
+        app_label = 'matrix'
     
     def __str__(self):
         """String for representing the Model object."""

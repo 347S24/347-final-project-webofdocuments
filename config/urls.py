@@ -24,6 +24,7 @@ urlpatterns = [
     path("users/", include("react_wod.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
     path("api/", api.urls),
+    path("editor/", include("matrix.urls", namespace="matrix")),
     # Your stuff: custom urls includes go here
     re_path(".*", HomeView.as_view(), name="home"),
     # Media files
