@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>{{ document.file_name }}</h1>
+    <div class="markdown-body">
+        {{ rendered_content|safe }}
+    </div>
+{% endblock %}

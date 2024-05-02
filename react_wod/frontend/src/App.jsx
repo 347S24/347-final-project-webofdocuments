@@ -37,8 +37,8 @@ function App() {
       }
 
       <div class="create-btns">
-        <a href="#" class='create-matrix'>New Matrix</a>
-        <a href="#" class='create-node'>New Node</a>
+        <a href="/matrix/editor/new_matrix" class='create-matrix'>New Matrix</a>
+        <a href="/matrix/editor/new_node" class='create-node'>New Node</a>
       </div>
 
       {
