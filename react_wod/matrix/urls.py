@@ -4,6 +4,6 @@ from .views import editor, document_detail_view
 
 app_name = "matrix"
 urlpatterns = [
-    path('<str:action>/', editor, name='editor'),
+    path('<str:editor>', view=editor),
     path('document/<int:pk>', view=document_detail_view, name='document_detail')
 ]
