@@ -2,24 +2,30 @@ from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 from .models import Matrix, Document
 
+from django.contrib.auth.decorators import login_required
+
+
+@login_required
 def editor(request):
     docid = int(request.GET.get('docid', 0))
     notes = Matrix.objects.all()
 
     if request.method == 'POST':
         docid = int(request.POST.get('docid', 0))
-        title = request.POST.get('title')
-        documents = request.POST.get('content', '')
+        titles = request.POST.get('title', '')
+        # owners = request.POST.get('owner',)
+        # documents = request.POST.get('content', '')
 
         if docid > 0:
             note = Matrix.objects.get(pk=docid)
-            note.title = title
-            note.documents = documents
+            note.title = titles
+            # note.owner = owners
+            # note.documents = documents
             note.save()
 
             return redirect('/?docid=%i' % docid)
         else:
-            note = Matrix.objects.create(documents=documents)
+            note = Matrix.objects.create(title=titles)
 
             return redirect('/?docid=%i' % note.id)
 
@@ -34,11 +40,74 @@ def editor(request):
         'note': note
     }
 
-    return render(request, 'matrix/editor.html', context)
+    return render(request, "matrix/new_matrix.html", context)
+
+
+def editor2(request):
+    # docid = int(request.GET.get('docid', 0))
+    # notes = Matrix.objects.all()
+    docs = Document.objects.all()
+    
+
+    if request.method == 'POST':
+        # docid = int(request.POST.get('docid', 0))
+        # file_names = request.POST.get('file_name', '')
+        # file_content = request.POST.get('file_contents', '')
+        # matriix = request.POST.get('matrix')
+        form = NodeForm(request.POST)
+
+        # if docid > 0:
+        if form.is_valid():
+            save_data = form.cleaned_data
+            return render(request, "matrix/new_node.html", {'form': form, 'saved_data': save_data})
+            
+            # note = Document.objects.get(pk=docid)
+            # note.file_name = file_names
+            # note.file_contents = file_content
+            # note.matrix = matriix
+            # note.save()
+
+        else:
+            # doc = Document.objects.create(file_name=file_names, file_contents=file_content, matrix=matriix)
+            # note = Matrix.objects.create(documents=documents)
+            form = NodeForm()
+            # return redirect('blank_text_field')
+
+    # if docid > 0:
+    #     note = Matrix.objects.get(pk=docid)
+    # else:
+    #     note = ''
+
+    # context = {
+    #     'document': docs,
+    #     # 'notes:': notes,
+    # }
+
+    return render(request, "matrix/new_node.html")
+
+
+    #         return redirect('/?docid=%i' % docid)
+    #     else:
+    #         note = Matrix.objects.create(documents=documents)
+
+    #         return redirect('/?docid=%i' % note.id)
+
+    # if docid > 0:
+    #     note = Matrix.objects.get(pk=docid)
+    # else:
+    #     note = ''
+
+    # context = {
+    #     'docid': docid,
+    #     'notes': notes,
+    #     'note': note
+    # }
+
+    # return render(request, 'matrix/editor.html', context)
 
 class DocumentDetailView(DetailView):
     model = Document
-    template_name = 'document_detail.html'
-    context_object_name = 'document'
+    template_name = "document_detail.html"
+    context_object_name = "document"
 
 document_detail_view = DocumentDetailView.as_view()

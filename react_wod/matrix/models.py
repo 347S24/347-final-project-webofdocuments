@@ -36,6 +36,8 @@ class Document(models.Model):
         """Return absolute URL to the document."""
         return reverse("documet_detail", kwargs={"pk": self.pk})
 
+    
+
     def __str__(self):
         """String for representing the Model object."""
         return self.file_name
