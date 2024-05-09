@@ -2,7 +2,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Editing Note for Matrix: {{ matrix.title }}</h1>
+<h1>Editing Note for Matrix: {{ note.title }}</h1>
 
 <form method="post">
     {% csrf_token %}

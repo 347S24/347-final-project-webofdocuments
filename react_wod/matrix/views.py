@@ -26,7 +26,8 @@ def editor(request):
         else:
             note = Matrix.objects.create(title=titles)
 
-            return redirect('/?docid=%i' % note.id)
+            #return redirect('/?docid=%i' % note.id)
+            return redirect(f'/editor/{docid}/markdown/')
 
     if docid > 0:
         note = Matrix.objects.get(pk=docid)
