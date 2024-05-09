@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import DetailView
 from .models import Matrix, Document
+from .forms import NodeForm
 
 from django.contrib.auth.decorators import login_required
 
@@ -13,8 +14,6 @@ def editor(request):
     if request.method == 'POST':
         docid = int(request.POST.get('docid', 0))
         titles = request.POST.get('title', '')
-        # owners = request.POST.get('owner',)
-        # documents = request.POST.get('content', '')
 
         if docid > 0:
             note = Matrix.objects.get(pk=docid)
@@ -23,7 +22,7 @@ def editor(request):
             # note.documents = documents
             note.save()
 
-            return redirect('/?docid=%i' % docid)
+            return redirect(f'/editor/{docid}/markdown/')
         else:
             note = Matrix.objects.create(title=titles)
 
@@ -40,7 +39,7 @@ def editor(request):
         'note': note
     }
 
-    return render(request, "matrix/new_matrix.html", context)
+    return render(request, "matrix/editor.html", context)
 
 
 def editor2(request):
@@ -104,6 +103,34 @@ def editor2(request):
     # }
 
     # return render(request, 'matrix/editor.html', context)
+
+@login_required
+def markdown_editor(request, docid):
+    try:
+        matrix = Matrix.objects.get(pk=docid, owner=request.user)
+    except:
+        return redirect('/')
+
+    if request.method == 'POST':
+        file_name = request.POST.get('file_name', '')
+        file_contents = request.POST.get('file_contents', '')
+
+        document = Document.objects.create(
+            file_name=file_name,
+            file_contents=file_contents,
+            owner=request.user
+        )
+
+        matrix.documents.add(document)
+        return redirect(f'editor/{docid}/markdown/')
+    
+    context = {
+        'matrix': matrix
+    }
+
+    return render(request, "matrix/markdown_editor.html", context)
+
+
 
 class DocumentDetailView(DetailView):
     model = Document

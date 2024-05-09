@@ -4,20 +4,20 @@ import { useEffect , useState } from 'react';
 
 function App() {
   // default value of owned_matricies is an empty list
-  const [owned_matricies, set_owned_matricies] = useState([])
+  const [owned_matricies, set_owned_matricies] = useState([]);
 
   // fetch the owned matricies of the currently logged in user of the app and 
   // async wait for the api fetch to succeed before updating the owned 
   useEffect(() => {
     if (username) {
-      let owned_matricies = fetch('/api/matricies')
+      let owned_matricies = fetch('/api/matricies');
       // wait for the promise to be fulfilled then make it json then set the owned matricies variable
-      owned_matricies.then(x => x.json()).then(set_owned_matricies)
+      owned_matricies.then(x => x.json()).then(set_owned_matricies);
     }
-  }, [username])
+  }, [username]);
 
-  console.log(owned_matricies)
-  console.log(owned_matricies[0])
+  //console.log(owned_matricies)
+  //console.log(owned_matricies[0])
 
   return (
     <>
@@ -38,7 +38,7 @@ function App() {
 
       <div class="create-btns">
         <a href="/editor/new_matrix/" class='create-matrix'>New Matrix</a>
-        <a href="/editor/new_node/" class='create-node'>New Node</a>
+        <a href="/editor/new_node/" class='create-node' onClick={() => set_curr_doc_id(0)}>New Node</a>
       </div>
 
       {
@@ -48,7 +48,7 @@ function App() {
           {owned_matricies.map((matrix, i)=>
             <option key={i} class='matrix-option'>
               {/* TODO: change href to the slug? */}
-              <a key={i} href='#' class='matrix-name'>{matrix.title}</a>
+              <a key={i} href='{/?docid=${matrix.id}' class='matrix-name'>{matrix.title}</a>
             </option>
           )}
         </select>

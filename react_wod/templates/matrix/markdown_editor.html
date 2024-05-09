@@ -1,0 +1,19 @@
+<!-- AI-generated -->
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Editing Note for Matrix: {{ matrix.title }}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    <label for="file_name">Document Title:</label>
+    <input type="text" name="file_name" placeholder="Document Title">
+    <br>
+
+    <label for="file_contents">Markdown Content:</label>
+    <textarea name="file_contents" rows="20" cols="80" placeholder="Write your markdown here..."></textarea>
+    <br>
+
+    <button type="submit">Save Document</button>
+</form>
+{% endblock %}

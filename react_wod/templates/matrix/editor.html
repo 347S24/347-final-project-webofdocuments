@@ -1,11 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Editor</h1>
-<form method="post">
-    {% csrf_token %}
-    <label for="content">Content:</label>
-    <textarea id="content" name="content" rows="4" cols="50">{{ note.file_contents }}</textarea>
-    <button type="submit">Save</button>
-</form>
+<h1>Edit your note!</h1>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Matrix title:</label>
+        
+        {% if note %}
+            <input type="text" name="title" value="{{ note.title }}">
+        {% else %}
+            <input type="text" name="title" value="">
+        {% endif %}
+
+        <button type="submit">Save</button>
+    </form>
+</body>
 {% endblock %}
